@@ -12,20 +12,21 @@
 */
 
 use Illuminate\Http\Request;
-
+/*
 Route::get('/', function () {
-    return view('hi');
-});
-
+    return App\Posts::get();
+    
+});*/
+Route::get("/","PostsController@index");
+Route::get("/posts/create","PostsController@create");
+Route::post("/posts/store","PostsController@store")->name("storeposts");
 Route::get("/formtosendpostmethod",function(){
 	return view("guest.form");
-});
+})->name("toreirect");
 
 
 Route::post("/testrequest",function(Request $request){
-	$data=[
-		"name"=>$request->post()["name"]
-	];
+	
 	return view("guest.table",["newdata"=>$data]);
 
 })->name("posttest");

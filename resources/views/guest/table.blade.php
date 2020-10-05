@@ -16,13 +16,13 @@
 			<th>#</th>
 			<th>name</th>
 		</tr>
-		<tr>
-			@foreach ($newdata as $data)
+		@foreach ($newdata as $data)
+			<tr>
 				<td>{{ ++$loop->index }}</td>
-				<td>{{ $data }}</td>
-			@endforeach
+				<td>{{ $data["name"] }}</td>
+			</tr>
+		@endforeach
 
-		</tr>
 	</table>
 </body>
 </html>
