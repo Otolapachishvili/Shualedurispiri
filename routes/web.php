@@ -11,7 +11,7 @@
 |
 */
 
-use Illuminate\Http\Request;
+
 /*
 Route::get('/', function () {
     return App\Posts::get();
@@ -24,15 +24,19 @@ Route::get("/formtosendpostmethod",function(){
 	return view("guest.form");
 })->name("toreirect");
 
+Route::get("/admin","ProductsController@index")->name("adminindex");
+Route::get("/admin/create","ProductsController@create")->name("admincreate");
 
-Route::post("/testrequest",function(Request $request){
-	
-	return view("guest.table",["newdata"=>$data]);
-
-})->name("posttest");
+Route::get("/admin/show/{id}","ProductsController@show")->name("adminshow");
 
 
+Route::get("/admin/edit/{id}","ProductsController@edit")->name("adminedit");
 
-Route::get("/parameter/{id}",function($id){
-	return $id;
-})->name("gettest");
+Route::post("/admin/store","ProductsController@store")->name("adminstore");
+Route::post("/admin/update","ProductsController@update")->name("adminupdate");
+
+
+Route::post("/admin/delete","ProductsController@delete")->name("admindelete");
+
+
+Route::post("/admin/store/comments","ProductsController@store_comment")->name("store_comment");
