@@ -9,10 +9,12 @@
 	<div class="container">
 		<form action="{{ route('adminstore') }}" method="POST">
 			@csrf
-			<input type="text" class="form-control" name="title">
+			<label>სახელი</label>
+			<input name="title" type="text" class="form-control">
+			<label>აღწერა</label>
 			<textarea name="text" class="form-control"></textarea>
-			<button class="btn btn-primary">save</button>
-		</form>
+			<button class="btn btn-primary"  style="margin-top: 10px">ბაზაში შეტანა</button>
+		</form>	
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>

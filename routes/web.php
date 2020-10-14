@@ -17,12 +17,19 @@ Route::get('/', function () {
     return App\Posts::get();
     
 });*/
-Route::get("/","PostsController@index");
-Route::get("/posts/create","PostsController@create");
-Route::post("/posts/store","PostsController@store")->name("storeposts");
-Route::get("/formtosendpostmethod",function(){
-	return view("guest.form");
-})->name("toreirect");
+// Route::get("/","PostsController@index");
+// Route::get("/posts/create","PostsController@create");
+// Route::post("/posts/store","PostsController@store")->name("storeposts");
+// Route::get("/formtosendpostmethod",function(){
+// 	return view("guest.form");
+// })->name("toreirect");
+
+
+#
+#
+#
+
+Route::get("/","ProductsController@index");
 
 Route::get("/admin","ProductsController@index")->name("adminindex");
 Route::get("/admin/create","ProductsController@create")->name("admincreate");

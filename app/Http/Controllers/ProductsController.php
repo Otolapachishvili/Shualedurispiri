@@ -56,7 +56,9 @@ class ProductsController extends Controller
     	Comments::create([
     		"comments"=>$request->input("comments"),
     		"product_id"=>$request->input("id")
+
     	]);
+        return redirect()->back();
     }
 }
 

@@ -14,25 +14,27 @@
 				<td>აღწერა</td>
 				<td>მოქმედება</td>
 			</tr>
-			@foreach ($products as $element)
+			@foreach ($products as $element)  
 				<tr>
 					<td>{{ ++$loop->index }}</td>
 					<td>{{ $element->title }}</td>
 					<td>{{ $element->description }}</td>
 					<td>
+						
+						<a href="{{ route('adminshow',["id"=>$element->id ]) }}" class="btn btn-success">
+							დათვალიერება/დაკომენტარება
+						</a><br><br>
+						<a href="{{ route('adminedit',["id"=>$element->id ]) }}" class="btn btn-warning">
+							განახლება
+						</a><br><br>
 						<form action="{{ route('admindelete') }}" method="POST">
 							@csrf
-							<input type="hidden" name="id" value="{{ $element->id }}">
+							<input name="id" type="hidden"  value="{{ $element->id }}">
 							<button class="btn btn-danger">
 								წაშლა
 							</button>
 						</form>
-						<a href="{{ route('adminedit',["id"=>$element->id ]) }}" class="btn btn-warning">
-							განახლება
-						</a>
-						<a href="{{ route('adminshow',["id"=>$element->id ]) }}" class="btn btn-success">
-							დათვალიერება
-						</a>
+						
 					</td>
 				</tr>
 			@endforeach

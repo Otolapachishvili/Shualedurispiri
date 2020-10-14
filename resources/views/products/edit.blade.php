@@ -9,10 +9,12 @@
 	<div class="container">
 		<form action="{{ route('adminupdate') }}" method="POST">
 			@csrf
-			<input type="hidden" name="id" value="{{ $product->id }}">
-			<input type="text" class="form-control" name="title" value="{{ $product->title }}">
+			<input name="id" type="hidden"  value="{{ $product->id }}">
+			<label>სახელი</label>
+			<input name="title" type="text" class="form-control"  value="{{ $product->title }}" >
+			<label>აღწერა</label>
 			<textarea name="text" class="form-control">{{ $product->description }}</textarea>
-			<button class="btn btn-primary">update</button>
+			<button class="btn btn-primary" style="margin-top: 10px">განახლება</button>
 		</form>
 	</div>
 

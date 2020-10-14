@@ -13,10 +13,11 @@
 		</div>
 		<form method="POST" class="mt-4" action="{{ route('store_comment') }}">
 			@csrf
-			<input type="hidden" name="id" value="{{ $product->id }}">
+			<input name="id"  type="hidden" value="{{ $product->id }}">
 			<label>კომენტარი</label>
-			<textarea class="form-control" name="comments"></textarea>
-			<button class="btn btn-primary">დაკომენატრება</button>
+			<textarea  name="comments" class="form-control"></textarea>
+			<button class="btn btn-primary" style="margin-top: 5px">
+			დაკომენტარება</button>
 		</form>
 		@foreach (App\Comments::where("product_id",$product->id)->get() as $comm)
 			<div class="card p-2 mt-4">
